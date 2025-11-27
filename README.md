@@ -12,4 +12,5 @@ Streamlit приложение для генерации тестовых дан
 pip install -r requirements.txt
 streamlit run app.py
 
-Приложение размещено на Railway.
+Приложение размещено на Railway. .
+
