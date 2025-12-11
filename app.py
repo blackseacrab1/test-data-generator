@@ -249,6 +249,69 @@ DATA_TYPES = {
 
 st.markdown("""
 <style>
+    /* Основной контейнер */
+    .main .block-container {
+        max-width: 1200px;
+        padding: 1rem;
+    }
+
+    /* Адаптация под мобильные */
+    @media (max-width: 768px) {
+        .main .block-container {
+            padding: 0.5rem;
+            max-width: 100%;
+        }
+
+        /* Сделать колонки вертикальными */
+        [data-testid="column"] {
+            width: 100% !important;
+            margin-bottom: 1rem;
+        }
+
+        /* Кнопки на всю ширину */
+        .stButton > button {
+            width: 100% !important;
+            height: auto !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+        }
+
+        /* Слайдеры и инпуты */
+        .stTextInput > div > div > input,
+        .stNumberInput > div > div > input,
+        .stSelectbox > div > div > select {
+            width: 100% !important;
+        }
+
+        /* Метрики в одну колонку */
+        div[data-testid="stMetric"] {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Уменьшить шрифты в таблицах */
+        .dataframe {
+            font-size: 0.85rem !important;
+        }
+
+        /* Уменьшить отступы заголовков */
+        .main-header {
+            font-size: 1.8rem !important;
+        }
+        .sub-header {
+            font-size: 1rem !important;
+        }
+    }
+
+    /* Экспорт-кнопки на мобильных */
+    @media (max-width: 600px) {
+        section[data-testid="stDownloadButton"] > button {
+            width: 100% !important;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    /* Ваш стиль */
     .main-header {
         font-size: 2.5rem;
         font-weight: 700;
