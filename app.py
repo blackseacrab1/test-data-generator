@@ -17,9 +17,8 @@ fake_ru, fake_en = get_fakers()
 st.set_page_config(
     page_title="Генератор Тестовых Данных",
     page_icon="🔧",
-    layout="centered"  # или просто уберите параметр — по умолчанию "centered"
+    layout="centered"  
 )
-
 # Ограничение для бесплатного хостинга
 MAX_RECORDS = 50
 
@@ -253,65 +252,69 @@ st.markdown("""
     .main .block-container {
         max-width: 1200px;
         padding: 1rem;
+        margin: 0 auto;
     }
 
-    /* Адаптация под мобильные */
+    /* Адаптация под мобильные устройства */
     @media (max-width: 768px) {
         .main .block-container {
-            padding: 0.5rem;
-            max-width: 100%;
+            padding: 0.5rem !important;
+            max-width: 100% !important;
         }
 
-        /* Сделать колонки вертикальными */
+        /* Колонки: сделать вертикальными */
         [data-testid="column"] {
             width: 100% !important;
-            margin-bottom: 1rem;
+            flex-direction: column !important;
+            margin-bottom: 1.2rem !important;
         }
 
-        /* Кнопки на всю ширину */
-        .stButton > button {
+        /* Кнопки — на всю ширину */
+        .stButton > button,
+        section[data-testid="stDownloadButton"] > button {
             width: 100% !important;
             height: auto !important;
             white-space: normal !important;
             word-wrap: break-word !important;
+            padding: 0.6rem !important;
+            font-size: 0.95rem !important;
         }
 
-        /* Слайдеры и инпуты */
-        .stTextInput > div > div > input,
-        .stNumberInput > div > div > input,
-        .stSelectbox > div > div > select {
-            width: 100% !important;
+        /* Поля ввода, селекты, слайдеры */
+        .stSelectbox, .stMultiselect, .stTextInput, .stSlider {
+            margin-bottom: 0.8rem !important;
         }
 
-        /* Метрики в одну колонку */
-        div[data-testid="stMetric"] {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        /* Уменьшить шрифты в таблицах */
+        /* Таблицы — добавить горизонтальный скролл */
         .dataframe {
-            font-size: 0.85rem !important;
+            font-size: 0.8rem !important;
+            overflow-x: auto !important;
+            white-space: nowrap !important;
+            display: block !important;
         }
 
-        /* Уменьшить отступы заголовков */
+        /* Заголовки */
         .main-header {
             font-size: 1.8rem !important;
         }
         .sub-header {
             font-size: 1rem !important;
         }
-    }
 
-    /* Экспорт-кнопки на мобильных */
-    @media (max-width: 600px) {
-        section[data-testid="stDownloadButton"] > button {
-            width: 100% !important;
-            margin-bottom: 0.5rem;
+        /* Предупреждение */
+        .warning-box {
+            padding: 8px !important;
+            font-size: 0.9rem !important;
+        }
+
+        /* Метрики (st.metric) */
+        div[data-testid="stMetric"] {
+            flex-direction: column !important;
+            align-items: flex-start !important;
         }
     }
 
-    /* Ваш стиль */
+    /* Ваши оригинальные стили */
     .main-header {
         font-size: 2.5rem;
         font-weight: 700;
